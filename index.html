@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Belmouidi | Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c6e49;
+            --primary-dark: #1d4e34;
+            --secondary: #4c956c;
+            --accent: #fefee3;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --shadow-hover: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            height: 3px;
+            width: 100%;
+            background: var(--primary);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(76, 149, 108, 0.9) 0%, rgba(44, 110, 73, 0.95) 100%), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+            animation: fadeInDown 1.2s ease;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .cta-buttons .btn {
+            min-width: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            gap: 40px;
+        }
+
+        .experience-item {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .experience-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .experience-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-size: 1.2rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .date {
+            background: var(--light-gray);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+            align-self: center;
+        }
+
+        .job-description ul {
+            padding-left: 20px;
+        }
+
+        .job-description li {
+            margin-bottom: 10px;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+
+        .skills .section-title {
+            color: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .skill-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .skill-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Certifications Section */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .cert-content {
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        .cert-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .cert-issuer {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .cert-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .cert-description {
+            margin-bottom: 20px;
+        }
+
+        .verify-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .verify-btn:hover {
+            color: var(--primary-dark);
+            transform: translateX(5px);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--light);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .contact-text {
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                background: white;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                transition: var(--transition);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .date {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">MB</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Mohamed Belmouidi</h1>
+                <p class="hero-subtitle">Laboratory & Field Technician | Data Scientist | Project Manager</p>
+                <p class="hero-description">
+                    Combining scientific expertise with advanced data science and project management skills to drive innovation in agricultural research and sustainable practices.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#about" class="btn btn-primary">
+                        <i class="fas fa-user"></i> About Me
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title fade-in">About Me</h2>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p>
+                        I am a dedicated and highly motivated professional with a unique combination of scientific expertise and modern technical skills. My background spans laboratory research, field studies, data science, and project management.
+                    </p>
+                    <p>
+                        With hands-on experience in microbiology, plant physiology, and soil science, combined with recent certifications in data science and project management, I bring a multidisciplinary approach to solving complex challenges in agricultural research and biotechnology.
+                    </p>
+                    <p>
+                        I'm passionate about leveraging data-driven insights and scientific rigor to contribute to sustainable agricultural practices and environmental solutions.
+                    </p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Bacteria Isolated & Characterized</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Professional Certifications</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Languages Spoken</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Professional Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-item fade-in">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="job-title">Laboratory and Field Technician</h3>
+                            <p class="company">Mohammed VI Polytechnic University, AgroBioScience</p>
+                        </div>
+                        <div class="date">Oct 2021 - Present</div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Conducted research in projects related to rhizobacteria and legumes, rhizobia interactions, and biocontrol of plant diseases</li>
+                            <li>Successfully isolated and characterized over 500 native bacteria from grain legume crops</li>
+                            <li>Assessed Plant Growth-Promoting Rhizobacteria (PGPR) activities using advanced laboratory techniques</li>
+                            <li>Developed and implemented new experimental protocols to improve research outcomes</li>
+                            <li>Collaborated with multidisciplinary teams and managed multiple research projects simultaneously</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item fade-in">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="job-title">Research Trainee</h3>
+                            <p class="company">Cadi Ayyad University, BioMAGE Laboratory</p>
+                        </div>
+                        <div class="date">Oct 2020 - Oct 2021</div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Collaborated with diverse researchers in water management, waste management, and microbiology</li>
+                            <li>Conducted bioremediation research on leachates with fungi from contaminated soil</li>
+                            <li>Performed comprehensive chemical analyses including pH, COD, BOD5, and GC-MS analysis</li>
+                            <li>Executed phytotoxicity and genotoxicity tests using plant-based bioindicators</li>
+                            <li>Supported PhD students in soil analysis and data collection</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <h2 class="section-title fade-in">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="skill-title">Programming & Data Science</h3>
+                    <ul class="skill-list">
+                        <li class="skill-tag">Python</li>
+                        <li class="skill-tag">R Programming</li>
+                        <li class="skill-tag">Machine Learning</li>
+                        <li class="skill-tag">Statistical Analysis</li>
+                        <li class="skill-tag">Data Visualization</li>
+                        <li class="skill-tag">Text Mining</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3 class="skill-title">Laboratory Techniques</h3>
+                    <ul class="skill-list">
+                        <li class="skill-tag">Microbial Culturing</li>
+                        <li class="skill-tag">DNA Extraction</li>
+                        <li class="skill-tag">PCR</li>
+                        <li class="skill-tag">Microscopy</li>
+                        <li class="skill-tag">Spectrophotometry</li>
+                        <li class="skill-tag">Biochemical Assays</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3 class="skill-title">Project Management</h3>
+                    <ul class="skill-list">
+                        <li class="skill-tag">Agile Methodology</li>
+                        <li class="skill-tag">Project Planning</li>
+                        <li class="skill-tag">Team Leadership</li>
+                        <li class="skill-tag">Risk Management</li>
+                        <li class="skill-tag">Quality Control</li>
+                        <li class="skill-tag">Data Management</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3 class="skill-title">Software & Tools</h3>
+                    <ul class="skill-list">
+                        <li class="skill-tag">Microsoft Office</li>
+                        <li class="skill-tag">SPSS</li>
+                        <li class="skill-tag">Adobe Creative Suite</li>
+                        <li class="skill-tag">Origin Lab</li>
+                        <li class="skill-tag">CoStat</li>
+                        <li class="skill-tag">Git</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Recent Certifications</h2>
+            <div class="certifications-grid">
+                <div class="cert-card fade-in">
+                    <div class="cert-content">
+                        <h3 class="cert-title">Google Project Management Certificate</h3>
+                        <p class="cert-issuer">Google via Coursera</p>
+                        <p class="cert-date">Issued: January 8, 2025</p>
+                        <p class="cert-description">
+                            Comprehensive certification covering project management foundations, initiation, planning, execution, and agile methodologies with real-world capstone project.
+                        </p>
+                        <a href="https://coursera.org/verify/professional-cert/6P9PAMV90HQX" target="_blank" class="verify-btn">
+                            <i class="fas fa-external-link-alt"></i> Verify Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <div class="cert-content">
+                        <h3 class="cert-title">Data Science Specialization</h3>
+                        <p class="cert-issuer">Johns Hopkins University via Coursera</p>
+                        <p class="cert-date">Issued: January 7, 2025</p>
+                        <p class="cert-description">
+                            10-course specialization covering R programming, statistical inference, machine learning, data visualization, and reproducible research.
+                        </p>
+                        <a href="https://coursera.org/verify/specialization/YETLWL4WOXZH" target="_blank" class="verify-btn">
+                            <i class="fas fa-external-link-alt"></i> Verify Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <div class="cert-content">
+                        <h3 class="cert-title">Applied Data Science with Python</h3>
+                        <p class="cert-issuer">University of Michigan via Coursera</p>
+                        <p class="cert-date">Issued: January 4, 2025</p>
+                        <p class="cert-description">
+                            Specialized in Python programming for data science, including machine learning, text mining, and social network analysis.
+                        </p>
+                        <a href="https://coursera.org/verify/specialization/BWMO5408FOVS" target="_blank" class="verify-btn">
+                            <i class="fas fa-external-link-alt"></i> Verify Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <div class="cert-content">
+                        <h3 class="cert-title">Inspiring Leadership through Emotional Intelligence</h3>
+                        <p class="cert-issuer">Case Western Reserve University via Coursera</p>
+                        <p class="cert-date">Issued: January 8, 2025</p>
+                        <p class="cert-description">
+                            Advanced leadership certification focusing on emotional intelligence and inspirational leadership techniques.
+                        </p>
+                        <a href="https://coursera.org/verify/8P30BDRIOMPI" target="_blank" class="verify-btn">
+                            <i class="fas fa-external-link-alt"></i> Verify Certificate
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <div class="contact-info">
+                <div class="contact-item fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="contact-title">Email</h3>
+                    <p class="contact-text">mohammed.belmouidi@gmail.com</p>
+                </div>
+
+                <div class="contact-item fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3 class="contact-title">Phone</h3>
+                    <p class="contact-text">+212 648 926 684</p>
+                </div>
+
+                <div class="contact-item fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="contact-title">Location</h3>
+                    <p class="contact-text">Marrakech, Morocco</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Mohamed Belmouidi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                            menuToggle.classList.remove('active');
+                        }
+                    }
+                });
+            });
+
+            // Fade-in animation on scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            if (fadeElements.length > 0) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+
+                fadeElements.forEach(element => {
+                    observer.observe(element);
+                });
+            }
+
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.style.padding = '10px 0';
+                    navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                } else {
+                    navbar.style.padding = '15px 0';
+                    navbar.style.boxShadow = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
